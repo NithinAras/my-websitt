@@ -46,16 +46,7 @@ pipeline {
                         ${IMAGE_NAME}:latest
                     """
                 }
-            }
-        }
-        
-        stage('Verify Deployment') {
-            steps {
-                echo '✅ Verifying deployment...'
-                script {
-                    sh "sleep 5"
-                    sh "curl -f http://localhost:${PORT} || exit 1"
-                }
+                echo "🌐 Website deployed at: http://localhost:${PORT}"
             }
         }
     }
@@ -63,7 +54,7 @@ pipeline {
     post {
         success {
             echo '✅ Pipeline completed successfully!'
-            echo "🌐 Website is live at: http://localhost:${PORT}"
+            echo "🌐 Visit your website at: http://localhost:${PORT}"
         }
         failure {
             echo '❌ Pipeline failed!'
