@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'agent1'}
+    agent any
     
     environment {
         IMAGE_NAME = "my-website"
